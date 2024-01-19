@@ -11,13 +11,37 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
-
+#include <cstddef>
 /* Add a prototype for a helper function here if you need */
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+  if (in == NULL) {
+    return; // the original list is empty (base case)
+  }
+
+  Node* temp = in->next; // traversing thru list using temp
+
+  if (in->value%2 == 0) { // is even
+    in->next = evens;
+    evens = in;
+
+  }
+  else if (in->value%2 !=0) { // list is odd
+    in->next = odds;
+    odds = in;
+
+  }
+
+  if (temp == nullptr) {
+    in = NULL;
+  }
+  else {
+    split(temp, odds, evens);
+  }
+
 }
 
 /* If you needed a helper function, write it here */
