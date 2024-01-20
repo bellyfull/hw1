@@ -6,7 +6,7 @@
 class ULListStr {
  public:
   struct Item {
-    std::string val[ARRSIZE];
+    std::string val[ARRSIZE]; //every Item has a string array called val
     /**
      * first and last indicate the occupied/used 
      * elements of the array where first is an
@@ -16,16 +16,16 @@ class ULListStr {
      * first=0, last=ARRSIZE indicates the array
      * is fully occupied
      */
-    size_t first, last;
-    Item *prev;
-    Item *next;
+    size_t first, last; //means unsigned int
+    Item *prev; //previous word item
+    Item *next; //next word item
 
     /**
      * Default constructor
      */
     Item(){
-      first = last = 0;
-      prev = next = NULL;
+      first = last = 0; //empty array
+      prev = next = NULL; //empty list
     }
   };
 
